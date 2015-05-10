@@ -22,6 +22,34 @@
       </div>
     </div>
     
+<!--  Modal area  -->
+    <!--Login-->
+    <div class="modal fade" id="modal-login">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Hey you should login</h4>
+          </div>
+          <div class="modal-body">
+            <form ng-submit="login(user)">
+              <input type="email" ng-model="user.email" >
+              <input type="text" ng-model="user.name" ng-show="$parent.regNew">
+              <input type="password" ng-model="user.password">
+              <input type="submit" class="btn">  
+            </form>
+            <button class="btn" ng-click="regNew = true">Register</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+    
+<!--Scripts-->
     <script src="resources/angular-animate.js"></script>
     <script src="resources/angular-resource.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.1.0/firebase.js"></script>
@@ -31,5 +59,7 @@
     <script src="resources/bootstrap.min.js"></script>    
     
     <script src="scripts/app.js"></script>  
+    <script src="scripts/service-auth.js"></script>
+    <script src="scripts/controller-browse.js"></script>  
   </body>
 </html>
