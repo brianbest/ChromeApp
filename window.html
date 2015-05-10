@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="phasedExtention" ng-csp>
   <head>
-    <style>
-      html { 
-        background: url(http://cupcake.nilssonlee.se/wp-content/uploads/2015/03/IMG_1822.jpg) no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-      }
-    </style>
+    
+    <script src="resources/angular.min.js"></script> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
   </head>
-  <body>
-    <div>Hello, world!</div>
+  <body ng-controller="BrowseController">
     
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+          <h1>Hello World</h1>
+        </div>
+      </div>
+    </div>
     
-    <script>
-      var imgs = [
-        'http://cupcake.nilssonlee.se/wp-content/uploads/2015/03/IMG_1822.jpg',
-        'http://cupcake.nilssonlee.se/wp-content/uploads/2015/02/IMG_8229.jpg',
-        'http://cupcake.nilssonlee.se/wp-content/uploads/2015/02/IMG_9992.jpg',
-        
-      ]
-    </script>
+    <script src="resources/angular-animate.js"></script>
+    <script src="resources/angular-resource.js"></script>
+      
+    <script src="scripts/app.js"></script>  
   </body>
 </html>
