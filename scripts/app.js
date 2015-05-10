@@ -2,6 +2,7 @@ var app = angular
     .module('phasedExtention', [
         'ngAnimate',
         'ngResource',
+        'firebase'
         
     ])
-    .constant('FURL', 'https://phased.firebaseio.com/');
+    .constant('FURL', 'https://chromeap.firebaseio.com/');
