@@ -1,7 +1,12 @@
 'use strict';
 
-app.controller('BrowseController', function($scope,Auth){
+app.controller('BrowseController', function($scope,Auth,FURL,$firebaseAuth,$firebase){
 	$scope.task = 0;
+	var ref = new Firebase(FURL);
+    var auth = $firebaseAuth(ref);
+	
+	var fbTasks = $firebase(ref.child('tasks')).$asArray();
+	
 	if(Auth.signedIn){
 		
 		$('#modal-login').modal('show');
@@ -28,13 +33,16 @@ app.controller('BrowseController', function($scope,Auth){
 	};
 	
 	$scope.addTask = function(task) {
+		console.log(Auth.user);
 		//Get username
-		task.user = Auth.user;
+		task.user = Auth.user.uid;
 		//Get task
 		//Get current time
 		task.time = new Date().getTime();
 		//Add to firebase
 		$scope.task = task;
+		var addthis = task;
+		fbTasks.$add(addthis);
 		
 		
 	}
