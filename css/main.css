@@ -18,6 +18,9 @@ h1 {
   font-weight: 200;
   font-size: 8rem; }
 
+li {
+  color: #fff; }
+
 .form-whatdo {
   margin-top: 35%; }
   .form-whatdo input[type='text'] {

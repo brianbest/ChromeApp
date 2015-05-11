@@ -11,7 +11,7 @@
     
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-8 col-sm-offset-2">
           <div class="form-whatdo">
             <h1 align="center" ng-show="!task">What are you doing now?</h1>
             <form ng-submit="addTask(tasks)" ng-show="!task">
@@ -20,6 +20,9 @@
             <h1 ng-show="task">Are you still doing...</h1>
             <h2 ng-show="task">{{task.name}}</h2>
             <button ng-show="task" ng-click="task = ''">Nope</button>  
+              <ul>
+                <li ng-repeat="member in team">{{member.name}} {{member.task}} {{member.time}} {{member.gravatar}}</li>
+              </ul>
           </div>
           
         </div>

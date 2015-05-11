@@ -14,6 +14,7 @@ app.controller('BrowseController', function($scope,Auth,FURL,$firebaseAuth,$fire
 	}
 	
 	$scope.regNew = false;
+	$scope.team = [];
 	$scope.login = function(user){
 		if($scope.regNew){
 			console.log('registering new user');
@@ -40,14 +41,53 @@ app.controller('BrowseController', function($scope,Auth,FURL,$firebaseAuth,$fire
 		//Get current time
 		task.time = new Date().getTime();
 		//Add to firebase
+		var profileRef = $firebase(ref.child('task'));
+        profileRef.$set(task.user,task);
+		//Add task to scope
 		$scope.task = task;
-		var addthis = task;
-		fbTasks.$add(addthis);
 		
 		
-	}
-	$scope.team = function() {
 		
 	}
+	$scope.teamActions = function() {
+		//Get all team members	
+		// Attach an asynchronous callback to read the data at our posts reference
+		
+		
+		
+		//Use the UID to get the latest tasks 
+		
+		//save to scope
+	}
+	
+	ref.on("value", function(snapshot) {
+		$scope.team = [];
+		  console.log(snapshot.val());
+		  var db = snapshot.val();
+		  var userID = Object.keys(db.profile);
+		  console.log(userID);
+		  for(var y = 0; y < userID.length; y++){
+			  console.log('looping');
+			  console.log(db.task[userID[y]]);
+			  if(db.task[userID[y]]){
+				  console.log('got a match');
+				  var obj = {
+					  name : db.profile[userID[y]].name,
+					 task : db.task[userID[y]].name,
+					 time : db.task[userID[y]].time,
+					 gravatar : db.profile[userID[y]].gravatar
+				  }
+				  console.log('pushing');
+				  $scope.team.push(obj);
+				  console.log($scope.team);
+			  }
+		  }
+		  
+		  
+		}, function (errorObject) {
+		  console.log("The read failed: " + errorObject.code);
+		});
+	
+	$scope.teamActions();
 	
 });
